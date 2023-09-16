@@ -1,13 +1,13 @@
 spring:
     profiles:
-        active: mysql
+        active: oracle
     datasource:
-        url: jdbc:mysql://localhost:3306/dating?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
-        username: webuser
-        password: aSecretPass
+        url: jdbc:oracle:thin:@//localhost:1521/XEPDB1
+        username: john
+        password: abcd1234
     jpa:
         database-platform: org.hibernate.dialect.MySQLInnoDBDialect
-        database: mysql
+        database: oracle
         openInView: false
         show_sql: true
         generate-ddl: false

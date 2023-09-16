@@ -6,6 +6,56 @@
         xmlns:pro="http://www.liquibase.org/xml/ns/pro"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd
+http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog-ext ">
+
+    <changeSet id="20230916-Create_Breed_Table" author="egeor3">
+        <createTable tableName="BREEDS">
+            <column name="BRE_ID" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BREEDS" />
+            </column>
+            <column name="BRE_NAME" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20230916_insert_breeds" author="egeor3">
+        <insert tableName="BREEDS">
+            <column name="BRE_NAME" value="Golden Retriever"></column>
+        </insert>
+        <insert tableName="BREEDS">
+            <column name="BRE_NAME" value="American Staffordshire Terrier"></column>
+        </insert>
+        <insert tableName="BREEDS">
+            <column name="BRE_NAME" value="German Shepherd Doger"></column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20230916_Create_Profiles_Table" author="egeor3">
+        <createTable tableName="PROFILES">
+            <column name="PRO_ID" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PROFILES" />
+            </column>
+            <column name="PRO_NAME" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="PRO_BRE_ID" type="int" defaultValue="NULL"></column>
+            <column name="PRO_HEIGHT" type="int" defaultValue="NULL"></column>
+            <column name="PRO_WEIGHT" type="int" defaultValue="NULL"></column>
+            <column name="PRO_DESCRIPTION" type="varchar(4000)" defaultValue="NULL"></column>
+            <column name="PRO_IMAGE_URL" type="varchar(100)" defaultValue="NULL"></column>
+        </createTable>
+
+        <createIndex tableName="PROFILES" indexName="IX_PRO_BRE_ID">
+            <column name="PRO_BRE_ID"></column>
+        </createIndex>
+
+    </changeSet>
+    
+    <changeSet id="20230916_Alter_Profiles_Add_Constraint" author="egeor4">
+
+    </changeSet>
 
 </databaseChangeLog>
