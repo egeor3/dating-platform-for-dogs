@@ -1,0 +1,22 @@
+spring:
+    profiles:
+        active: oracle
+    datasource:
+        url: jdbc:oracle:thin:@//localhost:1521/XEPDB1
+        username: john
+        password: abcd1234
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+        database: oracle
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+    main:
+        log-startup-info: false
