@@ -55,7 +55,8 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext ">
     </changeSet>
     
     <changeSet id="20230916_Alter_Profiles_Add_Constraint" author="egeor4">
-
+        <addForeignKeyConstraint baseTableName="PROFILES" baseColumnNames="PRO_BRE_ID" constraintName="FK_PRO_BRE_ID" referencedTableName="BREEDS"
+                                 referencedColumnNames="BRE_ID" />
     </changeSet>
 
 </databaseChangeLog>
