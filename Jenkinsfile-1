@@ -1,0 +1,9 @@
+pipeline {
+    stage   {
+        stage('Test') {
+            steps {
+                sh 'liquibase --version'
+            }
+        }
+    }
+}
